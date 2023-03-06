@@ -12,6 +12,7 @@ import java.util.Vector;
 
 
 public class graphicinterface  extends JFrame {
+
     // private Dialog dialog2;    //Конструктор главного окна
     public graphicinterface() throws ClassNotFoundException, SQLException, IOException {
         //Название формы
@@ -83,6 +84,7 @@ public class graphicinterface  extends JFrame {
 
 
             }
+
         });
         //кнопка добавления в базу
         c.addActionListener(new ActionListener() {

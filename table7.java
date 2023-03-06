@@ -18,7 +18,8 @@ public class table7 extends JFrame {
         String userid = "root";
         String password = "45953";
         String sql = "SELECT * FROM ppl";
-        setLocationRelativeTo(null);
+       //setLocationRelativeTo(null);
+        setLocation(600,250);
         setSize(500, 500);
         Connection connection = DriverManager.getConnection(url, userid, password);
         //Создает объект себе для отправки запросов SQL к базе данных
@@ -76,6 +77,7 @@ public class table7 extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
     }
 
 }
