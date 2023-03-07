@@ -136,7 +136,7 @@ public class graphicinterface  extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 try {
-                    statement.executeUpdate("DELETE FROM sakila.ppl;");
+                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl;");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
