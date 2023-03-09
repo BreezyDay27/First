@@ -55,7 +55,8 @@ public class graphicinterface  extends JFrame {
                 "id int auto_increment primary key,"+
                 "name varchar(30)not null,"+
                 "surname varchar(10)not null,"+
-                "age varchar(10)not null)");*/
+                "age varchar(10)not null)"+
+                 "UNIQUE ("name") ON CONFLICT REPLACE)");*/
 
         //statement.executeUpdate("INSERT INTO test23 (name,name2,name3) value ( Sname,'privet','privet')");
         //Обрабатываем событие при нажатии на кнопку
@@ -123,7 +124,7 @@ public class graphicinterface  extends JFrame {
                     String Kname = t1.getText();
                     String Surname = t2.getText();
                     String Age = t3.getText();
-                    statement.executeUpdate("INSERT INTO ppl (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
+                    statement.executeUpdate("INSERT INTO ppl47 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
@@ -136,7 +137,7 @@ public class graphicinterface  extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 try {
-                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl;");
+                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl47;");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }

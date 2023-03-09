@@ -17,7 +17,7 @@ public class table7 extends JFrame {
         String url = "jdbc:mysql://localhost:3306/sakila";
         String userid = "root";
         String password = "45953";
-        String sql = "SELECT * FROM ppl";
+        String sql = "SELECT * FROM ppl47";
        //setLocationRelativeTo(null);
         setLocation(600,250);
         setSize(500, 500);
