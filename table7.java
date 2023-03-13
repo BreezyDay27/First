@@ -14,13 +14,17 @@ public class table7 extends JFrame {
     public table7() throws Exception {
         ArrayList columnNames = new ArrayList();
         ArrayList data = new ArrayList();
+        //Подключение к базе данных
         String url = "jdbc:mysql://localhost:3306/sakila";
         String userid = "root";
         String password = "45953";
-        String sql = "SELECT * FROM ppl47";
+        String sql = "SELECT * FROM ppl51";
        //setLocationRelativeTo(null);
+        //Положение на экране
         setLocation(600,250);
+        //Размер
         setSize(500, 500);
+        //Создание переменной для подключения
         Connection connection = DriverManager.getConnection(url, userid, password);
         //Создает объект себе для отправки запросов SQL к базе данных
         Statement stmt = connection.createStatement();
@@ -32,7 +36,7 @@ public class table7 extends JFrame {
         for (int i = 1; i <= columns; i++) {
             columnNames.add(md.getColumnName(i));
         }
-        //Внутренность колонок
+        // Перебор строк с данными
         while (rs.next()) {
             ArrayList row = new ArrayList(columns);
             for (int i = 1; i <= columns; i++) {

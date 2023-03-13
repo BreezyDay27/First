@@ -88,14 +88,20 @@ public class graphicinterface  extends JFrame {
 
         });
         //кнопка добавления в базу
-        c.addActionListener(new ActionListener() {
+/*        c.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
 
-                JOptionPane.showMessageDialog(panel, "Данные добавлены!");
+                try{
+                    statement.executeUpdate("SELECT COUNT(name) FROM ppl51 WHERE name = name");
+                    JOptionPane.showMessageDialog(panel, "Данные внесены!");
+                }
 
+                catch (Exception Err){
+                }
+                JOptionPane.showMessageDialog(panel, "Уже есть такая запись!");
             }
-        });
+        });*/
      //кнопка удаления из базы
         d.addActionListener(new ActionListener() {
             @Override
@@ -124,9 +130,11 @@ public class graphicinterface  extends JFrame {
                     String Kname = t1.getText();
                     String Surname = t2.getText();
                     String Age = t3.getText();
-                    statement.executeUpdate("INSERT INTO ppl47 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
+                    statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
+                    JOptionPane.showMessageDialog(panel, "Данные внесены!");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
+                    JOptionPane.showMessageDialog(panel, "Уже есть такая запись!");
                 }
 
             }
@@ -137,7 +145,7 @@ public class graphicinterface  extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 try {
-                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl47;");
+                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl51;");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
