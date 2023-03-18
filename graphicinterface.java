@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Vector;
-
-
+import javax.swing.Timer;
+import java.util.TimerTask;
 public class graphicinterface  extends JFrame {
 
     // private Dialog dialog2;    //Конструктор главного окна
@@ -30,22 +31,13 @@ public class graphicinterface  extends JFrame {
         JButton n = new JButton("table");
         JButton b = new JButton("another window");
         JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Downloads\\Safeimagekit-resized-img.png"));
+        JLabel picLabel2 = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\vecher2.jpg"));
         JButton c = new JButton("enter data");
-        JButton d = new JButton("delete");
+        JButton d = new JButton(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\Screenshot_1.png"));
         JTextField t1 = new JFormattedTextField();
         JTextField t2 = new JFormattedTextField();
         JTextField t3 = new JFormattedTextField();
 
-        //добавляем кнопки и картинку и текстовое поле на форму
-        panel.add(b);
-        panel.add(picLabel);
-        panel.add(c);
-        panel.add(d);
-        panel.add(r);
-        panel.add(n);
-        panel.add(t1);
-        panel.add(t2);
-        panel.add(t3);
 
 
 
@@ -68,7 +60,8 @@ public class graphicinterface  extends JFrame {
                 //panel.setVisible(false);
                 Dialog dialog7 = new Dialog();
                 dialog7.setVisible(true);
-
+               /* Test2 test7 = new Test2();
+                test7.setVisible(true);*/
             }
         });
         //открыть таблицу с базой
@@ -86,30 +79,6 @@ public class graphicinterface  extends JFrame {
 
             }
 
-        });
-        //кнопка добавления в базу
-/*        c.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-
-                try{
-                    statement.executeUpdate("SELECT COUNT(name) FROM ppl51 WHERE name = name");
-                    JOptionPane.showMessageDialog(panel, "Данные внесены!");
-                }
-
-                catch (Exception Err){
-                }
-                JOptionPane.showMessageDialog(panel, "Уже есть такая запись!");
-            }
-        });*/
-     //кнопка удаления из базы
-        d.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-
-                JOptionPane.showMessageDialog(panel, "Данные удалены!");
-
-            }
         });
 
 
@@ -141,6 +110,7 @@ public class graphicinterface  extends JFrame {
 
 
         });
+
         d.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
@@ -149,9 +119,10 @@ public class graphicinterface  extends JFrame {
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
-                System.out.println("Deleted");
+                JOptionPane.showMessageDialog(panel, "Данные удалены!");
             }
         });
+
 
 /*        r.addActionListener(new ActionListener() {
             @Override
@@ -189,7 +160,34 @@ public class graphicinterface  extends JFrame {
                 }
             }
         });*/
+        panel.add(b);
+        int hours = Calendar.getInstance().getTime().getHours();
+        System.out.println(hours);
+        String[] hello = {"Доброе утро!", "Добрый день!", "Добрый вечер!", "Вообще-то уже ночь..."};
+        if(hours >= 6 && hours < 12){
+            System.out.println(hello[0]);
+        }
+        if(hours >= 12 && hours < 18){
+              panel.add(picLabel2);
+            System.out.println(hello[1]);
+        }
+        if(hours >= 18 && hours < 23){
+            panel.add(picLabel);
+            System.out.println(hello[2]);
+        }
+        if(hours >=23 && hours < 6){
+            System.out.println(hello[3]);
+        }
 
+        //добавляем кнопки и картинку и текстовое поле на форму
+
+        panel.add(c);
+        panel.add(d);
+        panel.add(r);
+        panel.add(n);
+        panel.add(t1);
+        panel.add(t2);
+        panel.add(t3);
 
         //добавляем элементы
         getContentPane().add(panel);
@@ -226,7 +224,6 @@ public class graphicinterface  extends JFrame {
             throw new RuntimeException();
         }
     }
-
 
 
 
