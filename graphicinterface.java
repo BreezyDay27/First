@@ -28,12 +28,12 @@ public class graphicinterface  extends JFrame {
          panel.setLayout(layout);
         //кнопки
         JButton r = new JButton("table");
-        JButton n = new JButton("table");
+        JButton n = new JButton("table1");
         JButton b = new JButton("another window");
         JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Downloads\\Safeimagekit-resized-img.png"));
         JLabel picLabel2 = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\vecher2.jpg"));
         JButton c = new JButton("enter data");
-        JButton d = new JButton(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\Screenshot_1.png"));
+        JButton d = new JButton("DELETE!");
         JTextField t1 = new JFormattedTextField();
         JTextField t2 = new JFormattedTextField();
         JTextField t3 = new JFormattedTextField();
@@ -64,6 +64,7 @@ public class graphicinterface  extends JFrame {
                 test7.setVisible(true);*/
             }
         });
+
         //открыть таблицу с базой
         r.addActionListener(new ActionListener() {
             @Override
@@ -99,6 +100,9 @@ public class graphicinterface  extends JFrame {
                     String Kname = t1.getText();
                     String Surname = t2.getText();
                     String Age = t3.getText();
+                    t1.setText("");
+                    t2.setText("");
+                    t3.setText("");
                     statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
                     JOptionPane.showMessageDialog(panel, "Данные внесены!");
                 } catch (Exception Err) {
