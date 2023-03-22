@@ -1,5 +1,4 @@
 import com.sun.tools.javac.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.BorderLayout;
@@ -17,28 +16,38 @@ public class graphicinterface  extends JFrame {
     // private Dialog dialog2;    //Конструктор главного окна
     public graphicinterface() throws ClassNotFoundException, SQLException, IOException {
         //Название формы
-        super("Таблица_11");
+        super("Таблица");
         //размер окна
         setSize(700, 700);
         //Вспомогательная панель
         JPanel panel = new JPanel();
+        panel.setLayout(null);
 
-        //Менеджер красположения
-         GridLayout layout = new GridLayout(3, 3, 5, 5);
-         panel.setLayout(layout);
         //кнопки
+        JLabel picLabel2 = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\vecher2.jpg"));
+        picLabel2.setBounds(210, 100, 300, 200);
+        panel.add(picLabel2);
         JButton r = new JButton("table");
+        r.setBounds(450, 450, 100, 50);
+        panel.add(r);
         JButton n = new JButton("table1");
         JButton b = new JButton("another window");
-        JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Downloads\\Safeimagekit-resized-img.png"));
-        JLabel picLabel2 = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\vecher2.jpg"));
+        JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\123.jpg"));
         JButton c = new JButton("enter data");
+        c.setBounds(270, 450, 100, 50);
+        panel.add(c);
         JButton d = new JButton("DELETE!");
+        d.setBounds(100, 450, 100, 50);
+        panel.add(d);
         JTextField t1 = new JFormattedTextField();
+        t1.setBounds(80, 350, 150, 30);
+        panel.add(t1);
         JTextField t2 = new JFormattedTextField();
+        t2.setBounds(250, 350, 150, 30);
+        panel.add(t2);
         JTextField t3 = new JFormattedTextField();
-
-
+        t3.setBounds(420, 350, 150, 30);
+        panel.add(t3);
 
 
         //настройки подключения к бд
@@ -49,8 +58,6 @@ public class graphicinterface  extends JFrame {
                 "surname varchar(10)not null,"+
                 "age varchar(10)not null)"+
                  "UNIQUE ("name") ON CONFLICT REPLACE)");*/
-
-        //statement.executeUpdate("INSERT INTO test23 (name,name2,name3) value ( Sname,'privet','privet')");
         //Обрабатываем событие при нажатии на кнопку
         b.addActionListener(new ActionListener() {
             @Override
@@ -82,16 +89,7 @@ public class graphicinterface  extends JFrame {
 
         });
 
-
- /*       r.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame();
-                frame.setSize(500,500);
-                frame.setVisible(true);
-            }
-        });*/
-
+        
         c.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
@@ -100,6 +98,7 @@ public class graphicinterface  extends JFrame {
                     String Kname = t1.getText();
                     String Surname = t2.getText();
                     String Age = t3.getText();
+                    //очищает поля после ввода данных
                     t1.setText("");
                     t2.setText("");
                     t3.setText("");
@@ -128,43 +127,8 @@ public class graphicinterface  extends JFrame {
         });
 
 
-/*        r.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0)  {
-                try{
-                    Connection conn;
-                    conn = DriverManager.getConnection(URL, NAME_USER, PASSWORD);
-                    Statement stmt = (Statement) conn.createStatement();
-                    String query = "Select name1, name2, name3 from test27";
-                    ResultSet rs = stmt.executeQuery(query);
-
-                    rs.beforeFirst();
-
-                    while (rs.next()) {
-                        String title = rs.getString("Title");
-                        String season = rs.getString("Season");
-                        String episode = rs.getString("Episode");
-
-                        String[] columns = {"Title", "S", "E"};
-                        String[][] data = {{title, season, episode}};
-
-
-                        vk = new JTable(data, columns);
-                    };
-
-                    vk.setPreferredScrollableViewportSize(new Dimension(450, 63));
-                    vk.setFillsViewportHeight(true);
-
-                    JScrollPane jps = new JScrollPane(jt);
-                    add(jps);
-                }
-
-                catch (Exception Err){
-                    System.out.println(Err.getMessage());
-                }
-            }
-        });*/
-        panel.add(b);
+       // panel.add(b);
+        //картинка меняется от времени суток
         int hours = Calendar.getInstance().getTime().getHours();
         System.out.println(hours);
         String[] hello = {"Доброе утро!", "Добрый день!", "Добрый вечер!", "Вообще-то уже ночь..."};
@@ -182,16 +146,9 @@ public class graphicinterface  extends JFrame {
         if(hours >=23 && hours < 6){
             System.out.println(hello[3]);
         }
-
         //добавляем кнопки и картинку и текстовое поле на форму
 
-        panel.add(c);
-        panel.add(d);
-        panel.add(r);
-        panel.add(n);
-        panel.add(t1);
-        panel.add(t2);
-        panel.add(t3);
+
 
         //добавляем элементы
         getContentPane().add(panel);
@@ -228,7 +185,6 @@ public class graphicinterface  extends JFrame {
             throw new RuntimeException();
         }
     }
-
 
 
         public static void main(String[] args) throws  ClassNotFoundException, SQLException, IOException {
