@@ -32,6 +32,8 @@ public class graphicinterface  extends JFrame {
         panel.add(r);
         JButton n = new JButton("table1");
         JButton b = new JButton("another window");
+        b.setBounds(100, 550, 100, 50);
+        panel.add(b);
         JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\123.jpg"));
         JButton c = new JButton("enter data");
         c.setBounds(270, 450, 100, 50);
