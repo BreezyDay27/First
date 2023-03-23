@@ -25,14 +25,18 @@ public class graphicinterface  extends JFrame {
 
         //кнопки
         JLabel picLabel2 = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\vecher2.jpg"));
-        picLabel2.setBounds(210, 100, 300, 200);
+        picLabel2.setBounds(200, 100, 300, 200);
         panel.add(picLabel2);
         JButton r = new JButton("table");
         r.setBounds(450, 450, 100, 50);
         panel.add(r);
         JButton n = new JButton("table1");
         JButton b = new JButton("another window");
-        JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\123.jpg"));
+        b.setBounds(270, 550, 100, 50);
+        panel.add(b);
+        JLabel picLabel = new JLabel(new ImageIcon("C:\\Users\\KDFX Team\\Desktop\\vecher.jpg"));
+        picLabel.setBounds(200, 100, 300, 200);
+        panel.add(picLabel);
         JButton c = new JButton("enter data");
         c.setBounds(270, 450, 100, 50);
         panel.add(c);
