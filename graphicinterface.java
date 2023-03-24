@@ -52,6 +52,16 @@ public class graphicinterface  extends JFrame {
         JTextField t3 = new JFormattedTextField();
         t3.setBounds(420, 350, 150, 30);
         panel.add(t3);
+        JLabel newLabel = new JLabel("name");
+        newLabel.setBounds(80, 380, 150, 30);
+        panel.add(newLabel);
+        JLabel newLabel2 = new JLabel("surname");
+        newLabel2.setBounds(250, 380, 150, 30);
+        panel.add(newLabel2);
+        JLabel newLabel3 = new JLabel("age");
+        newLabel3.setBounds(420, 380, 150, 30);
+        panel.add(newLabel3);
+
 
 
         //настройки подключения к бд
