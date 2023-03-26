@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Vector;
 import javax.swing.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.*;
 public class graphicinterface  extends JFrame {
 
     // private Dialog dialog2;    //Конструктор главного окна
@@ -61,6 +62,7 @@ public class graphicinterface  extends JFrame {
         JLabel newLabel3 = new JLabel("age");
         newLabel3.setBounds(420, 380, 150, 30);
         panel.add(newLabel3);
+
 
 
 
@@ -116,8 +118,13 @@ public class graphicinterface  extends JFrame {
                     t1.setText("");
                     t2.setText("");
                     t3.setText("");
-                    statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
-                    JOptionPane.showMessageDialog(panel, "Данные внесены!");
+                    if (Kname.isEmpty()) {
+                        JOptionPane.showMessageDialog(panel, "Пустая запись!");
+                    }
+                    else {
+                        statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
+                        JOptionPane.showMessageDialog(panel, "Данные внесены!");
+                    }
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                     JOptionPane.showMessageDialog(panel, "Уже есть такая запись!");
@@ -125,8 +132,9 @@ public class graphicinterface  extends JFrame {
 
             }
 
-
         });
+
+
 
         d.addActionListener(new ActionListener() {
             @Override

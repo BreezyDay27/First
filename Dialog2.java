@@ -17,3 +17,4 @@ public class Dialog2 extends JDialog {
         setSize(500, 300);
     }
 }
+
