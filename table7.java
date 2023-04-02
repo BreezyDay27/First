@@ -1,29 +1,34 @@
 import java.awt.BorderLayout;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.*;
 
 
-public class table7 extends JFrame {
+public class table7  {
 
     public table7() throws Exception {
         ArrayList columnNames = new ArrayList();
         ArrayList data = new ArrayList();
+        JFrame jFrame = new JFrame();
+        jFrame.setSize(500, 300);
+        jFrame.setLocation(600,250);
         //Подключение к базе данных
         String url = "jdbc:mysql://localhost:3306/sakila";
         String userid = "root";
         String password = "45953";
         String sql = "SELECT * FROM ppl51";
-       //setLocationRelativeTo(null);
+
+        JPanel mainPane = new JPanel();
+        JPanel buttonPane = new JPanel();
+        JButton button1 = new JButton("Test 1");
+        buttonPane.add(button1);
+
+
         //Положение на экране
-        setLocation(600,250);
-        //Размер
-        setSize(500, 500);
+
         //Создание переменной для подключения
         Connection connection = DriverManager.getConnection(url, userid, password);
         //Создает объект себе для отправки запросов SQL к базе данных
@@ -67,20 +72,66 @@ public class table7 extends JFrame {
                 }
                 return Object.class;
             }
-        };
-        JScrollPane scrollPane = new JScrollPane(table);
-        getContentPane().add(scrollPane);
-        // JPanel buttonPanel = new JPanel();
-        //   getContentPane().add(buttonPanel, BorderLayout.NORTH);
 
+        };
+        //кнопка удаления строчки выделенной из базы
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                int row = table.getSelectedRow();
+                String cell = table.getModel().getValueAt(row, 0).toString();
+                try {
+
+                    statement.executeUpdate("DELETE FROM sakila.ppl51 WHERE id = '" + cell + "'");
+                } catch (Exception Err) {
+                    System.out.println(Err.getMessage());
+                }
+
+            }
+        });
+        JScrollPane scrollPane = new JScrollPane(table);
+       // getContentPane().add(scrollPane);
+        mainPane.add(table);
+        mainPane.add(buttonPane);
+        jFrame.add(mainPane);
+        jFrame.setVisible(true);
+
+
+    }
+    //данные для коннекта к базе
+    public static final String NAME_USER = "root";
+    public static final String PASSWORD = "45953";
+    public static final String URL = "jdbc:mysql://localhost:3306/sakila";
+    public static Statement statement;
+    public static Connection connection;
+
+
+    static {
+        try {
+            connection = DriverManager.getConnection(URL, NAME_USER, PASSWORD);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+
+    static {
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException();
+        }
     }
 
 
     public static void main (String[]args) throws Exception {
         Main frame = new Main();
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+     //   frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
 
     }
 

@@ -95,7 +95,7 @@ public class graphicinterface  extends JFrame {
 
                 try {
                     table7 table = new table7();
-                    table.setVisible(true);
+                    //table.setVisible(true);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -118,6 +118,7 @@ public class graphicinterface  extends JFrame {
                     t1.setText("");
                     t2.setText("");
                     t3.setText("");
+                    //проверка на пустые поля
                     if (Kname.isEmpty()) {
                         JOptionPane.showMessageDialog(panel, "Пустая запись!");
                     }
@@ -158,11 +159,11 @@ public class graphicinterface  extends JFrame {
             System.out.println(hello[0]);
         }
         if(hours >= 12 && hours < 18){
-              panel.add(picLabel2);
+              panel.add(picLabel);
             System.out.println(hello[1]);
         }
         if(hours >= 18 && hours < 23){
-            panel.add(picLabel);
+            panel.add(picLabel2);
             System.out.println(hello[2]);
         }
         if(hours >=23 && hours < 6){
