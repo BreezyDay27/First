@@ -17,7 +17,7 @@ public class graphicinterface  extends JFrame {
     // private Dialog dialog2;    //Конструктор главного окна
     public graphicinterface() throws ClassNotFoundException, SQLException, IOException {
         //Название формы
-        super("Таблица");
+        super("Таблица1");
         //размер окна
         setSize(700, 700);
         //Вспомогательная панель
