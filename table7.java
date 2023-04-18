@@ -96,7 +96,7 @@ public class table7  {
         jFrame.add(mainPane);
         jFrame.setVisible(true);
         mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.Y_AXIS));
-        //buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.Y_AXIS));
+        //buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.X_AXIS));
 
 
     }
