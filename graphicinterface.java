@@ -12,6 +12,7 @@ import java.util.Vector;
 import javax.swing.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.*;
+
 public class graphicinterface  extends JFrame {
 
     // private Dialog dialog2;    //Конструктор главного окна
@@ -105,7 +106,7 @@ public class graphicinterface  extends JFrame {
 
         });
 
-        
+
         c.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
