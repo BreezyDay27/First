@@ -2,6 +2,8 @@ import com.sun.tools.javac.Main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
@@ -52,6 +54,8 @@ public class graphicinterface  extends JFrame {
         t2.setBounds(250, 350, 150, 30);
         panel.add(t2);
         JTextField t3 = new JFormattedTextField();
+
+
         t3.setBounds(420, 350, 150, 30);
         panel.add(t3);
         JLabel newLabel = new JLabel("name");
@@ -115,13 +119,20 @@ public class graphicinterface  extends JFrame {
                     String Kname = t1.getText();
                     String Surname = t2.getText();
                     String Age = t3.getText();
+
                     //очищает поля после ввода данных
                     t1.setText("");
                     t2.setText("");
                     t3.setText("");
+
                     //проверка на пустые поля
                     if (Kname.isEmpty()) {
                         JOptionPane.showMessageDialog(panel, "Пустая запись!");
+                    }
+                    //запрещает буквы в поле возраст
+                    if (!(Age.matches("[0-9]+"))) {
+                        JOptionPane.showMessageDialog(null, "Please insert only characters.");
+                       
                     }
                     else {
                         statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");

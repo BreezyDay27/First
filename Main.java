@@ -70,12 +70,12 @@ import javax.swing.*;
         }
 
 
-                public static void main (String[]args) throws Exception {
+/*                public static void main (String[]args) throws Exception {
                     Main frame = new Main();
                     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
                     frame.pack();
                     frame.setVisible(true);
-                }
+                }*/
 
     }
 
