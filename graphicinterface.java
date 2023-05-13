@@ -131,8 +131,8 @@ public class graphicinterface  extends JFrame {
                     }
                     //запрещает буквы в поле возраст
                     if (!(Age.matches("[0-9]+"))) {
-                        JOptionPane.showMessageDialog(null, "Please insert only characters.");
-                       
+                        JOptionPane.showMessageDialog(null, "Только цифры в возрасте");
+
                     }
                     else {
                         statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
