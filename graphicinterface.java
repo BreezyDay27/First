@@ -73,12 +73,11 @@ public class graphicinterface  extends JFrame {
 
         //настройки подключения к бд
         Class.forName("com.mysql.cj.jdbc.Driver");
-        /* statement.executeUpdate("CREATE TABLE ppl ("+
+         /*statement.executeUpdate("CREATE TABLE ppl ("+
                 "id int auto_increment primary key,"+
-                "name varchar(30)not null,"+
-                "surname varchar(10)not null,"+
-                "age varchar(10)not null)"+
-                 "UNIQUE ("name") ON CONFLICT REPLACE)");*/
+                "name varchar(30)not null UNIQUE,"+
+                "surname varchar(10)not null UNIQUE,"+
+                "age varchar(10)not null)");*/
         //Обрабатываем событие при нажатии на кнопку
         b.addActionListener(new ActionListener() {
             @Override
@@ -132,7 +131,6 @@ public class graphicinterface  extends JFrame {
                     //запрещает буквы в поле возраст
                     if (!(Age.matches("[0-9]+"))) {
                         JOptionPane.showMessageDialog(null, "Только цифры в возрасте");
-
                     }
                     else {
                         statement.executeUpdate("INSERT INTO ppl (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
