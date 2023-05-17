@@ -19,7 +19,7 @@ public class table7  {
         String url = "jdbc:mysql://localhost:3306/sakila";
         String userid = "root";
         String password = "45953";
-        String sql = "SELECT * FROM ppl51";
+        String sql = "SELECT * FROM ppl";
 
         JPanel mainPane = new JPanel();
         JPanel buttonPane = new JPanel();
@@ -82,7 +82,7 @@ public class table7  {
                 String cell = table.getModel().getValueAt(row, 0).toString();
                 try {
 
-                    statement.executeUpdate("DELETE FROM sakila.ppl51 WHERE id = '" + cell + "'");
+                    statement.executeUpdate("DELETE FROM sakila.ppl WHERE id = '" + cell + "'");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
