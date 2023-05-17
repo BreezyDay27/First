@@ -135,7 +135,7 @@ public class graphicinterface  extends JFrame {
 
                     }
                     else {
-                        statement.executeUpdate("INSERT INTO ppl51 (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
+                        statement.executeUpdate("INSERT INTO ppl (name,surname,age) value ('" + Kname + "','" + Surname + "','" + Age + "')");
                         JOptionPane.showMessageDialog(panel, "Данные внесены!");
                     }
                 } catch (Exception Err) {
@@ -153,7 +153,7 @@ public class graphicinterface  extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 try {
-                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl51;");
+                    statement.executeUpdate("TRUNCATE TABLE sakila.ppl;");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
