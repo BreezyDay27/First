@@ -25,6 +25,9 @@ public class table7  {
         JPanel buttonPane = new JPanel();
         JButton button1 = new JButton("Test 1");
         buttonPane.add(button1);
+        JButton button2 = new JButton("Test 2");
+      //  button2.setBounds(270, 550, 100, 50);
+        buttonPane.add(button2);
 
 
         //Положение на экране
@@ -83,6 +86,19 @@ public class table7  {
                 try {
 
                     statement.executeUpdate("DELETE FROM sakila.ppl WHERE id = '" + cell + "'");
+                } catch (Exception Err) {
+                    System.out.println(Err.getMessage());
+                }
+
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+
+                try {
+                    statement.executeQuery("SELECT * FROM sakila.ppl INTO OUTFILE 'C:/Users/KDFX Team/Desktop/11/1111.txt'");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }
