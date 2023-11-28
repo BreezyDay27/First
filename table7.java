@@ -98,7 +98,8 @@ public class table7  {
             public void actionPerformed(ActionEvent arg0) {
 
                 try {
-                    statement.executeQuery("SELECT * FROM sakila.ppl INTO OUTFILE 'C:/Users/KDFX Team/Desktop/11/1111.txt'");
+                    statement.executeQuery("SELECT * FROM sakila.ppl INTO OUTFILE 'C:/Users/KDFX Team/Desktop/11/122.txt'");
+                    System.out.println("Таблица выгружена");
                 } catch (Exception Err) {
                     System.out.println(Err.getMessage());
                 }

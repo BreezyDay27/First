@@ -20,7 +20,7 @@ public class graphicinterface  extends JFrame {
     // private Dialog dialog2;    //Конструктор главного окна
     public graphicinterface() throws ClassNotFoundException, SQLException, IOException {
         //Название формы
-        super("Таблица12");
+        super("Таблица");
         //размер окна
         setSize(700, 700);
         //Вспомогательная панель
@@ -56,7 +56,7 @@ public class graphicinterface  extends JFrame {
         JTextField t3 = new JFormattedTextField();
 
 
-        t3.setBounds(420, 350, 150, 30);
+        t3.setBounds(420, 350, 150, 30); 
         panel.add(t3);
         JLabel newLabel = new JLabel("name");
         newLabel.setBounds(80, 380, 150, 30);
